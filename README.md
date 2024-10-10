@@ -15,6 +15,7 @@ For a list of available options, please run without arguments.
 # Hello World in FIFTH
 ```
 push 0 # [NULL]
+push 33 # !
 push 100 # d
 push 108 # l
 push 114 # r
