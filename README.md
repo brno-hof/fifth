@@ -1,6 +1,17 @@
 # FIFTH
 A simple stack-based programming language inspired by FOURTH
 
+# Usage
+Running binary:
+```bash
+./fifth ./path/to/file.5th [OPTIONS]
+```
+Running with cargo:
+```bash
+cargo run ./path/to/file.5th [OPTIONS]
+```
+For a list of available options, please run without arguments.
+
 # Syntax
 Every keyword is written on a new line.
 Indentation is not necessary, but recommended for readability.
@@ -94,3 +105,4 @@ push 4
 mul # this calls the subroutine
 halt
 ```
+More code examples are provided in the examples folder
