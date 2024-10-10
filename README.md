@@ -47,7 +47,7 @@ Indentation is not necessary, but recommended for readability.
 # pushes an unsigned 8 bit integer on the stack
 push 42
 
-# pops top element
+# removes top element from the stack
 pop
 
 # duplicates top element
@@ -62,11 +62,11 @@ swap
 # [0][1][2] -> [1][2][0]
 rotate
 
-# pushes the element second from the top
+# copies the element second from the top and pushes it to the stack
 # [0][1] -> [0][1][0]
 over
 
-# pushes nth element from the top
+# copies nth element from the top and pushes it to the stack
 # pick 1 === dup
 # pick 2 === over
 pick 42
@@ -108,7 +108,7 @@ else
 then
 
 # there are no loops
-# similar behaviour can be achieved by using recursive subroutines (see next section)
+# similar behaviour can be achieved by using recursive subroutines
 ```
 
 ## Subroutines
@@ -117,9 +117,9 @@ then
 # it can be called from anywhere in the program, even recursively
 # it is good practice to annotate "argument(s)" and "return value(s)" of a subroutine, since these are not obvious from the context
 
-# n1 n2 -> (n1*n2)
+# n m -> (n*m)
 mul:
-  if # n1 > 0
+  if # m > 0
     push 1
     sub
     swap
@@ -127,13 +127,12 @@ mul:
     rotate
     mul # recursive call
     add
-  else # n1 = 0
+  else # m = 0
     swap
     pop
   then
 return
 
-# subroutines take their "arguments" from the top of the stack
 push 3
 push 4
 mul # this calls the subroutine
