@@ -10,6 +10,8 @@ pub enum Token {
     Over,
     Pick(usize),
     BinOp(BinOp),
+    PrintByte,
+    PrintChar,
     If,
     Else,
     Then,
@@ -32,6 +34,8 @@ impl Token {
                 BinOp::Add => "add".to_string(),
                 BinOp::Sub => "sub".to_string(),
             },
+            Token::PrintByte => "print_byte".to_string(),
+            Token::PrintChar => "print_char".to_string(),
             Token::If => "if".to_string(),
             Token::Else => "else".to_string(),
             Token::Then => "then".to_string(),
@@ -157,6 +161,8 @@ impl Program {
                     },
                     "ADD" => Token::BinOp(BinOp::Add),
                     "SUB" => Token::BinOp(BinOp::Sub),
+                    "PRINT_BYTE" => Token::PrintByte,
+                    "PRINT_CHAR" => Token::PrintChar,
                     "IF" => Token::If,
                     "ELSE" => Token::Else,
                     "THEN" => Token::Then,
@@ -294,6 +300,19 @@ impl Program {
                         BinOp::Sub => bottom.overflowing_sub(top).0,
                     };
                     self.stack.push(result);
+                    self.pc += 1;
+                }
+            },
+            Token::PrintByte | Token::PrintChar => match self.stack.pop() {
+                None => return Err(RuntimeError::StackUnderflow(current_token.clone())),
+                Some(top) => {
+                    if let Token::PrintByte = &current_token.token {
+                        print!("{}", top);
+                    };
+                    if let Token::PrintChar = &current_token.token {
+                        let character = char::from(top);
+                        print!("{}", character);
+                    }
                     self.pc += 1;
                 }
             },

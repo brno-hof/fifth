@@ -1,6 +1,7 @@
 push 3
 push 4
 mul
+print_byte
 halt
 
 # n1 n2 -> (n1*n2)

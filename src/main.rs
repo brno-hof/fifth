@@ -183,8 +183,10 @@ fn run(config: Config) -> Result<(), Box<dyn std::error::Error>> {
         }
     }
 
-    println!("Program halted.");
-    println!("Final stack: {:?}", program.stack);
+    if config.verbose || config.step {
+        println!("Program halted.");
+        println!("Final stack: {:?}", program.stack);
+    }
 
     Ok(())
 }

@@ -1,5 +1,6 @@
 push 4
 fib
+print_byte
 halt
 
 # n -> "nth fibonacci number"

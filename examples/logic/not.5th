@@ -1,7 +1,9 @@
 push 1
 not
+print_line
 push 0
 not
+print_line
 halt
 
 # n -> !n
@@ -14,3 +16,10 @@ not:
     push 1
   then
 return
+
+print_line:
+  dup
+  print_byte
+  push 10
+  print_char
+  return

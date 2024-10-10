@@ -1,5 +1,6 @@
 push 5
 fact
+print_byte
 halt
 
 # n -> n!

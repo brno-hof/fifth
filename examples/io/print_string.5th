@@ -1,0 +1,22 @@
+push 0 # [NULL]
+push 100 # d
+push 108 # l
+push 114 # r
+push 111 # o
+push 87 # W
+push 32 # [SPACE]
+push 111 # o
+push 108 # l
+push 108 # l
+push 101 # e
+push 72 # H
+print_string
+halt
+
+# n [0] c1 ... cn -> n
+print_string:
+  if
+    print_char
+    print_string
+  then
+  return
