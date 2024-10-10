@@ -1,5 +1,5 @@
 # FIFTH
-A simple stack-based programming language inspired by FOURTH
+A simple stack-based programming language inspired by FORTH
 
 # Usage
 Running binary:
