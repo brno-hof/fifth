@@ -44,48 +44,54 @@ Indentation is not necessary, but recommended for readability.
 ```
 # this is a comment
 
-# pushes an unsigned 8 bit integer on the stack
+# pushes an unsigned 8 bit integer (0-255) on the stack
 push 42
+push 255
+push 0
 
-# removes top element from the stack
+# removes topmost byte from the stack
 pop
 
-# duplicates top element
+# duplicates topmost byte
 # [0][1] -> [0][1][1]
 dup
 
-# swaps top two elements
+# swaps top two bytes
 # [0][1] -> [1][0]
 swap
 
-# rotates top three elements
+# rotates top three bytes
 # [0][1][2] -> [1][2][0]
 rotate
 
-# copies the element second from the top and pushes it to the stack
+# copies the byte second from the top and pushes it
 # [0][1] -> [0][1][0]
 over
 
-# copies nth element from the top and pushes it to the stack
+# copies nth byte from the top and pushes it to the stack
 # pick 1 === dup
 # pick 2 === over
-pick 42
+pick 3
 
-# pops the top two elements and pushes their sum
+# pops the top two bytes and pushes their sum
 # [42][7] -> [49]
+push 42
+push 7
 add
 
-# pops the top two elements and pushes their difference
+# pops the top two bytes and pushes their difference
 # [42][7] -> [35]
+push 42
+push 7
 sub
 
 # all arithmetic operations work with overflows (255 + 1 = 0), (1 - 3 = 254)
 
-# pops top element and prints it as a byte (here 72)
+# pops topmost byte and prints it as a number (here 72)
 push 72
 print_byte
 
-# pops top element and prints it as an ascii character (here 'H')
+# pops topmost byte and prints it as an ascii character (here 'H')
 push 72
 print_char
 
@@ -106,6 +112,8 @@ if
 else
   # code here executed if top of stack is equal to zero
 then
+
+# if-conditions do not pop the topmost element
 
 # there are no loops
 # similar behaviour can be achieved by using recursive subroutines
