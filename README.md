@@ -43,6 +43,7 @@ Indentation is not necessary, but recommended for readability.
 ## Keywords
 ```
 # this is a comment
+
 # pushes an unsigned 8 bit integer on the stack
 push 42
 
