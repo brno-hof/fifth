@@ -303,7 +303,7 @@ impl Program {
                     None => return Err(RuntimeError::StackUnderflow(current_token.clone())),
                 };
 
-                if top != 0 {
+                if top > 0 {
                     self.pc += 1;
                 } else {
                     let mut depth = 1;

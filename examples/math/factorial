@@ -1,0 +1,34 @@
+push 5
+fact
+halt
+
+# n -> n!
+fact:
+  if # n > 0
+    dup
+    push 1
+    sub
+    fact
+    swap # not necessary, but more efficient
+    mul
+  else # n = 0
+    pop
+    push 1
+  then
+return
+
+# n1 n2 -> (n1*n2)
+mul:
+  if # n1 > 0
+    push 1
+    sub
+    swap
+    dup
+    rotate
+    mul
+    add
+  else # n1 = 0
+    swap
+    pop
+  then
+return

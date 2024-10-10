@@ -1,0 +1,20 @@
+push 3
+push 4
+mul
+halt
+
+# n1 n2 -> (n1*n2)
+mul:
+  if # n1 > 0
+    push 1
+    sub
+    swap
+    dup
+    rotate
+    mul
+    add
+  else # n1 = 0
+    swap
+    pop
+  then
+return

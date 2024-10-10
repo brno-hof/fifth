@@ -1,0 +1,26 @@
+push 1
+push 1
+and
+push 0
+push 0
+and
+and
+push 1
+and
+halt
+
+# n1 n2 -> (n1 && n2)
+and:
+  if # n1 = true (<=> n1 > 0)
+    swap
+    if # n2 = true (<=> n2 > 0)
+      pop
+    else # n2 = false (<=> n2 = 0)
+      swap
+      pop
+    then
+  else # n1 = false (<=> n1 = 0)
+    swap
+    pop
+  then
+return

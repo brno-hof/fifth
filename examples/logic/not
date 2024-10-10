@@ -1,0 +1,16 @@
+push 1
+not
+push 0
+not
+halt
+
+# n -> !n
+not:
+  if # n = true (<=> n > 0)
+    pop
+    push 0
+  else # n = false (<=> n > 0)
+    pop
+    push 1
+  then
+return

@@ -1,0 +1,23 @@
+push 4
+fib
+halt
+
+# n -> "nth fibonacci number"
+fib:
+  if # n > 0
+    push 1
+    sub
+    if # n > 1
+      dup
+      push 1
+      sub
+      fib
+      swap
+      fib
+      add
+    else # n = 1
+      pop
+      push 1
+    then
+  then
+return
