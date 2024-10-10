@@ -12,6 +12,31 @@ cargo run ./path/to/file.5th [OPTIONS]
 ```
 For a list of available options, please run without arguments.
 
+# Hello World in FIFTH
+```
+push 0 # [NULL]
+push 100 # d
+push 108 # l
+push 114 # r
+push 111 # o
+push 87 # W
+push 32 # [SPACE]
+push 111 # o
+push 108 # l
+push 108 # l
+push 101 # e
+push 72 # H
+print_string
+halt
+
+print_string:
+  if
+    print_char
+    print_string
+  then
+  return
+```
+
 # Syntax
 Every keyword is written on a new line.
 Indentation is not necessary, but recommended for readability.
@@ -54,6 +79,14 @@ add
 sub
 
 # all arithmetic operations work with overflows (255 + 1 = 0), (1 - 3 = 254)
+
+# pops top element and prints it as a byte (here 72)
+push 72
+print_byte
+
+# pops top element and prints it as an ascii character (here 'H')
+push 72
+print_char
 
 # halts the program
 halt
