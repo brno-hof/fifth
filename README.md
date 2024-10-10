@@ -105,3 +105,4 @@ push 4
 mul # this calls the subroutine
 halt
 ```
+More code examples are provided in the examples folder
