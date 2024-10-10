@@ -104,7 +104,7 @@ then
 if
   # code here executed if top of stack is greater than zero
 else
-  # code here executed if top of stack is less than or equal to zero
+  # code here executed if top of stack is equal to zero
 then
 
 # there are no loops
